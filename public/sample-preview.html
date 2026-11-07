@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>International Design School (IDS) — Fresh Photography Inspection Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --bg-alt: #FAFAFA;
+      --border: #E8E8E8;
+      --text-main: #111111;
+      --text-muted: #666666;
+      --brand-blue: #2638CC;
+      --brand-blue-soft: #EEF0FF;
+      --brand-coral: #F06445;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding-bottom: 80px;
+    }
+    /* Subtle ChronoTask Dotted Background */
+    .bg-dots {
+      background-image: radial-gradient(#D0D3D9 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .header {
+      padding: 48px 24px;
+      border-bottom: 1px solid var(--border);
+      background: #FFFFFF;
+    }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--brand-blue-soft);
+      color: var(--brand-blue);
+      border: 1px solid #D7DCFF;
+      margin-bottom: 16px;
+    }
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-coral);
+    }
+    h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 800px;
+    }
+    .notice-box {
+      margin-top: 24px;
+      padding: 16px 20px;
+      border-radius: 12px;
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      color: #92400E;
+      font-size: 13px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .samples-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-top: 40px;
+      padding: 0 24px;
+    }
+    .sample-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
+    }
+    .image-stage {
+      position: relative;
+      background: #0A0A0A;
+      overflow: hidden;
+      cursor: zoom-in;
+    }
+    .image-stage img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .image-stage:hover img {
+      transform: scale(1.02);
+    }
+    .meta-body {
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .meta-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .meta-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .meta-pills {
+      display: flex;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+    }
+    .pill {
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .pill-blue {
+      background: var(--brand-blue-soft);
+      border-color: #D7DCFF;
+      color: var(--brand-blue);
+      font-weight: 600;
+    }
+    .meta-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 8px;
+    }
+    .details-table td {
+      padding: 6px 12px;
+      border-top: 1px solid var(--border);
+    }
+    .details-table td:first-child {
+      color: #888888;
+      width: 160px;
+      padding-left: 0;
+    }
+    .details-table td:last-child {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* Modal for Inspection */
+    #lightboxModal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      padding: 24px;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightboxModal.open {
+      display: flex;
+    }
+    #lightboxModal img {
+      max-width: 95vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header bg-dots">
+    <div class="container">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Fresh Photography Samples (3 Files)
+      </div>
+      <h1>International Design School — Visual Inspection Preview</h1>
+      <p class="subtitle">
+        Reviewing the 3 freshly generated, unadorned photographs. Production images are fully preserved and backed up under <code>backup/production-images/</code>. No production references have been altered pending your visual inspection and approval.
+      </p>
+
+      <div class="notice-box">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        <div>
+          <strong>Status: Awaiting Visual Approval</strong><br>
+          Click any image below to view at maximum native resolution (1376&times;768). Production replacement will only proceed once these samples are approved.
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="samples-grid">
+
+      <!-- Sample 1: Fashion Design Studio -->
+      <article class="sample-card">
+        <div class="image-stage" onclick="openLightbox('/images/samples/ids-fashion-studio-01.webp')">
+          <img src="/images/samples/ids-fashion-studio-01.webp" alt="IDS Fashion Design Studio" loading="eager">
+        </div>
+        <div class="meta-body">
+          <div class="meta-header">
+            <h2 class="meta-title">1. Fashion Design Studio</h2>
+            <div class="meta-pills">
+              <span class="pill pill-blue">ids-fashion-studio-01.webp</span>
+              <span class="pill">1376 &times; 768 px</span>
+              <span class="pill">Fresh Master</span>
+            </div>
+          </div>
+          <p class="meta-desc">
+            Authentic Indian fashion students collaborating around communal cutting tables, pinning raw silk and muslin to couture dress forms. Natural industrial daylight, sewing stations, fabric rolls, zero fake UI overlays or floating stickers.
+          </p>
+          <table class="details-table">
+            <tr><td>Target Path</td><td>public/images/samples/ids-fashion-studio-01.webp</td></tr>
+            <tr><td>Environment</td><td>Haute Couture &amp; Draping Atelier</td></tr>
+            <tr><td>Status</td><td>Saved &amp; Ready for Review</td></tr>
+          </table>
+        </div>
+      </article>
+
+      <!-- Sample 2: Interior Design Studio -->
+      <article class="sample-card">
+        <div class="image-stage" onclick="openLightbox('/images/samples/ids-interior-studio-01.webp')">
+          <img src="/images/samples/ids-interior-studio-01.webp" alt="IDS Interior Design Studio" loading="eager">
+        </div>
+        <div class="meta-body">
+          <div class="meta-header">
+            <h2 class="meta-title">2. Interior Design Studio</h2>
+            <div class="meta-pills">
+              <span class="pill pill-blue">ids-interior-studio-01.webp</span>
+              <span class="pill">1376 &times; 768 px</span>
+              <span class="pill">Fresh Master</span>
+            </div>
+          </div>
+          <p class="meta-desc">
+            Spatial architecture studio featuring Indian students and mentor reviewing an architectural balsa wood scale model, technical blueprints, and physical material sample trays (limestone, fluted wood, marble, terrazzo) under warm gallery spotlights.
+          </p>
+          <table class="details-table">
+            <tr><td>Target Path</td><td>public/images/samples/ids-interior-studio-01.webp</td></tr>
+            <tr><td>Environment</td><td>Spatial Architecture &amp; Built Environments Lab</td></tr>
+            <tr><td>Status</td><td>Saved &amp; Ready for Review</td></tr>
+          </table>
+        </div>
+      </article>
+
+      <!-- Sample 3: IDS Reception with Physical Wall Signage -->
+      <article class="sample-card">
+        <div class="image-stage" onclick="openLightbox('/images/samples/ids-reception-01.webp')">
+          <img src="/images/samples/ids-reception-01.webp" alt="IDS Reception Lobby with Physical Architectural Signage" loading="eager">
+        </div>
+        <div class="meta-body">
+          <div class="meta-header">
+            <h2 class="meta-title">3. IDS Reception with Realistic Physical Wall Signage</h2>
+            <div class="meta-pills">
+              <span class="pill pill-blue">ids-reception-01.webp</span>
+              <span class="pill">1376 &times; 768 px</span>
+              <span class="pill">3D Architectural Signage</span>
+            </div>
+          </div>
+          <p class="meta-desc">
+            Contemporary admissions atrium with double-height ceiling, polished terrazzo floor, and marble reception counter. On the background fluted oak wall, 3D dimensional lettering ("IDS" and "INTERNATIONAL DESIGN SCHOOL") is physically installed with realistic directional drop shadows matching the recessed ceiling spotlights. Strictly zero white bounding boxes or artificial plaques.
+          </p>
+          <table class="details-table">
+            <tr><td>Target Path</td><td>public/images/samples/ids-reception-01.webp</td></tr>
+            <tr><td>Signage Treatment</td><td>Individual 3D Cutout Dimensional Lettering on Fluted Oak</td></tr>
+            <tr><td>Status</td><td>Saved &amp; Ready for Review</td></tr>
+          </table>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div id="lightboxModal" onclick="closeLightbox()">
+    <img id="lightboxImg" src="" alt="Enlarged Preview">
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxModal').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightboxModal').classList.remove('open');
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>
