@@ -15,18 +15,18 @@ export default function SectionHeading({
   const isSplit = align === 'split';
 
   return (
-    <div className={`mb-12 md:mb-16 ${className}`}>
+    <div className={`mb-10 sm:mb-12 md:mb-16 ${className}`}>
       {isSplit ? (
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-5 border-b border-[#E8E8E8]">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 sm:gap-6 pb-5 border-b border-[#E8E8E8]">
           <div className="max-w-2xl">
             {eyebrow && (
-              <div className="mb-3">
+              <div className="mb-2.5 sm:mb-3">
                 <Badge variant={light ? 'dark' : 'coral'} size="sm" dot>
                   {eyebrow}
                 </Badge>
               </div>
             )}
-            <h2 className={`font-heading text-3xl md:text-5xl font-bold tracking-tight ${light ? 'text-white' : 'text-[#111111]'}`}>
+            <h2 className={`font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.12] ${light ? 'text-white' : 'text-[#111111]'}`}>
               {title}{' '}
               {italicTitle && (
                 <span className="text-[#999999] font-normal">
@@ -35,13 +35,13 @@ export default function SectionHeading({
               )}
             </h2>
           </div>
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end lg:items-center justify-between gap-4 max-w-xl">
             {subtitle && (
-              <p className={`text-sm md:text-base max-w-md ${light ? 'text-gray-300' : 'text-[#666666]'}`}>
+              <p className={`text-xs sm:text-sm md:text-base leading-relaxed ${light ? 'text-gray-300' : 'text-[#666666]'}`}>
                 {subtitle}
               </p>
             )}
-            {action && <div>{action}</div>}
+            {action && <div className="shrink-0 w-full sm:w-auto">{action}</div>}
           </div>
         </div>
       ) : (
@@ -62,7 +62,7 @@ export default function SectionHeading({
             )}
           </h2>
           {subtitle && (
-            <p className={`mt-4 text-base md:text-lg leading-relaxed ${light ? 'text-gray-300' : 'text-[#666666]'} ${isCentered ? 'mx-auto' : ''}`}>
+            <p className={`mt-4 text-sm sm:text-base md:text-lg leading-relaxed ${light ? 'text-gray-300' : 'text-[#666666]'} ${isCentered ? 'mx-auto' : ''}`}>
               {subtitle}
             </p>
           )}

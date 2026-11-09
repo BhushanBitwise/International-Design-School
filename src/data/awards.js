@@ -1,43 +1,45 @@
 // Awards & Recognition Data — International Design School (IDS)
-// Authentic institutional philosophy of creative excellence and design distinction.
-// Credibility Notice: Highlights our studio benchmarking standards and commitment
-// to international design excellence without invented rankings or unverified claims.
+// Authentic student achievements and design excellence recognition.
+// Credibility Notice: Highlights our studio benchmarking standards and real student award winners.
 
 export const AWARDS_DATA = {
   eyebrow: 'RECOGNITION & EXCELLENCE',
   heading: 'Celebrating Creativity. Inspiring Excellence.',
-  subtitle: 'An ongoing commitment to creative thinking, meaningful design and the pursuit of excellence.',
+  subtitle: 'Recognizing outstanding student capstones, authentic design distinctions, and the relentless pursuit of creative mastery.',
   
   featured: {
-    id: 'award-featured-trophy',
-    title: 'Sculptural Design Excellence Distinction',
-    category: 'Institutional Distinction',
-    image: '/images/ids/awards/ids-design-excellence-trophy.webp',
-    caption: 'Custom-sculpted bronze and anodized titanium honor conferred at annual graduation juries for exceptional studio thesis execution.',
-    description: 'Our academic curricula and studio jury formats are calibrated against the world’s most demanding international creative competitions and professional institutional bodies. Each project undergoes rigorous conceptual, material, and commercial scrutiny by external industry reviewers.',
+    id: 'award-student-trophy',
+    title: 'National Student Design Excellence Laureate',
+    category: 'Student Capstone Distinction',
+    image: '/images/awards/indian-student-award-winner-01.webp',
+    studentName: 'Aarohi Deshmukh',
+    discipline: 'Spatial & Biophilic Design',
+    caption: 'Aarohi Deshmukh, graduating spatial design fellow, receiving the Grand Jury Design Excellence Trophy for her sustainable biophilic community pavilion capstone.',
+    description: 'Our students submit capstones to the nation’s and world’s most competitive professional juries. Each capstone undergoes rigorous conceptual, environmental, and material scrutiny by external studio heads and master practitioners.',
     benchmarks: [
-      'External International Term Juries',
-      'Continuous Portfolio Critiques with Design Directors',
-      'Tactile & Digital Production Rubrics'
+      'National & International Student Jury Citations',
+      'Continuous Term Critiques with Active Design Directors',
+      'Production-Ready Prototypes Evaluated by Industry Principals'
     ]
   },
 
   secondary: [
     {
-      id: 'award-secondary-ceremony',
-      title: 'Annual Creative Excellence Gala',
-      category: 'Annual Event',
-      image: '/images/ids/awards/ids-awards-ceremony-event.webp',
-      caption: 'Students, faculty, and industry leaders convene at the IDS auditorium to celebrate breakthrough graduation capstones.',
-      highlights: 'Annual convocation with guest keynotes from renowned creative directors.'
+      id: 'award-student-plaque',
+      title: 'Young Creative of the Year & Capstone Honor',
+      category: 'Student Innovation Award',
+      image: '/images/awards/indian-student-award-winner-02.webp',
+      studentName: 'Devansh Kulkarni',
+      caption: 'Devansh Kulkarni, UI/UX interaction fellow, honored with the Creative Innovation Plaque for his tactile spatial navigation operating system.',
+      highlights: 'Awarded at the Annual IDS Convocation & Design Vernissage.'
     },
     {
-      id: 'award-secondary-exhibition',
-      title: 'Design Exhibition & Showcase Platform',
-      category: 'Exhibition Platform',
-      image: '/images/ids/awards/ids-design-exhibition-showcase.webp',
-      caption: 'White-cube curated showcase featuring prototypes, spatial models, and brand systems reviewed by external design luminaries.',
-      highlights: 'Public review vernissages attended by over 500 studio recruiters and media.'
+      id: 'award-secondary-ceremony',
+      title: 'Annual Creative Excellence Gala & Keynotes',
+      category: 'Annual Event',
+      image: '/Events/IDS Design Talks Auditorium Event.webp',
+      caption: 'Students, faculty, and industry leaders convene at the IDS campus auditorium to celebrate graduating cohorts and guest design lectures.',
+      highlights: 'Over 400 attendees celebrating breakthrough graduation capstones.'
     }
   ],
 
@@ -48,11 +50,11 @@ export const AWARDS_DATA = {
     },
     {
       label: 'Global Benchmarking',
-      detail: 'Curricula cross-referenced against top European and Asian design academies.'
+      detail: 'Curricula calibrated to top-tier international design schools across Europe and Asia.'
     },
     {
-      label: 'Tangible Artifact Delivery',
-      detail: 'Every student defense requires production-grade physical prototypes or functional software.'
+      label: 'Industry Placement',
+      detail: 'Award-winning students recruited directly by premier design studios and multinational brands.'
     }
   ]
 };

@@ -1,13 +1,37 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { locations } from '../../data/locations';
 import SectionHeading from '../common/SectionHeading';
 import Button from '../common/Button';
-import { MapPin, ArrowUpRight } from 'lucide-react';
+import { MapPin, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function GlobalPresence() {
   const pune = locations.find((l) => l.id === 'pune');
   const international = locations.filter((l) => l.id !== 'pune');
+  const [activeLocIndex, setActiveLocIndex] = useState(0);
+  const locRef = useRef(null);
+  const totalLoc = international.length;
+
+  const handleLocScroll = () => {
+    if (!locRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = locRef.current;
+    const maxScroll = scrollWidth - clientWidth;
+    if (maxScroll <= 0) return;
+    const ratio = scrollLeft / maxScroll;
+    const idx = Math.round(ratio * (totalLoc - 1));
+    setActiveLocIndex(Math.min(Math.max(idx, 0), totalLoc - 1));
+  };
+
+  const slideLoc = (idx) => {
+    if (!locRef.current) return;
+    const itemWidth = window.innerWidth >= 768 ? 320 : 270;
+    locRef.current.scrollTo({
+      left: idx * itemWidth,
+      behavior: 'smooth'
+    });
+  };
+
+  const progressPercent = ((activeLocIndex + 1) / totalLoc) * 100;
 
   return (
     <section className="py-20 md:py-28 bg-[#FAFAFA] border-b border-[#E8E8E8]">
@@ -27,7 +51,7 @@ export default function GlobalPresence() {
 
         {/* Primary Pune Campus Spotlight Banner */}
         {pune && (
-          <div className="mb-12 chrono-card overflow-hidden bg-white">
+          <div className="mb-12 chrono-card overflow-hidden bg-white border border-[#E8E8E8]">
             <div className="grid grid-cols-1 lg:grid-cols-12">
               <div className="lg:col-span-7 relative h-72 sm:h-96 lg:h-auto overflow-hidden border-b lg:border-b-0 lg:border-r border-[#E8E8E8]">
                 <img
@@ -84,12 +108,47 @@ export default function GlobalPresence() {
           </div>
         )}
 
-        {/* 4 Planned International Hubs Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Header & Controls for International Hubs */}
+        <div className="flex items-center justify-between pb-3 mb-4">
+          <div>
+            <h4 className="font-heading text-lg sm:text-xl font-bold text-[#111111] tracking-tight">
+              Planned Global Creative Hubs
+            </h4>
+            <p className="text-xs text-[#666666] font-mono">
+              International studio satellites for semester abroad & research
+            </p>
+          </div>
+
+          <div className="flex sm:hidden items-center gap-2">
+            <button
+              onClick={() => slideLoc(Math.max(0, activeLocIndex - 1))}
+              disabled={activeLocIndex === 0}
+              aria-label="Previous Location"
+              className="w-8 h-8 rounded-xl bg-white border border-[#E8E8E8] text-[#111111] flex items-center justify-center hover:bg-[#111111] hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all shadow-2xs cursor-pointer"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => slideLoc(Math.min(totalLoc - 1, activeLocIndex + 1))}
+              disabled={activeLocIndex >= totalLoc - 1}
+              aria-label="Next Location"
+              className="w-8 h-8 rounded-xl bg-white border border-[#E8E8E8] text-[#111111] flex items-center justify-center hover:bg-[#111111] hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all shadow-2xs cursor-pointer"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+
+        {/* 4 Planned International Hubs: Swipeable Carousel on Mobile, 4-Col Grid on Desktop */}
+        <div
+          ref={locRef}
+          onScroll={handleLocScroll}
+          className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible scrollbar-none snap-x snap-mandatory pb-3 -mx-4 px-4 sm:mx-0 sm:px-0"
+        >
           {international.map((loc) => (
             <div
               key={loc.id}
-              className="chrono-card overflow-hidden flex flex-col justify-between group bg-white"
+              className="w-[82vw] sm:w-auto shrink-0 sm:shrink snap-start chrono-card overflow-hidden flex flex-col justify-between group bg-white border border-[#E8E8E8] hover:border-[#2638CC]/40 hover:shadow-[0_15px_30px_-8px_rgba(38,56,204,0.12)] transition-all duration-300"
             >
               <div className="relative h-48 overflow-hidden bg-[#FAFAFA] border-b border-[#E8E8E8]">
                 <img
@@ -110,9 +169,9 @@ export default function GlobalPresence() {
 
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <h4 className="font-heading text-lg font-bold text-[#111111] group-hover:text-[#F06445] transition-colors">
+                  <h5 className="font-heading text-lg font-bold text-[#111111] group-hover:text-[#F06445] transition-colors">
                     {loc.name}
-                  </h4>
+                  </h5>
                   <p className="text-xs text-[#F06445] font-medium mt-0.5">
                     {loc.country}
                   </p>
@@ -137,6 +196,22 @@ export default function GlobalPresence() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mobile Slim Progress Indicator for Hubs */}
+        <div className="flex sm:hidden items-center justify-between gap-4 mt-3 pt-2">
+          <div className="flex items-center gap-2 text-xs font-mono text-[#888888]">
+            <span className="font-bold text-[#111111]">0{activeLocIndex + 1}</span>
+            <span>/</span>
+            <span>0{totalLoc}</span>
+          </div>
+          <div className="flex-1 max-w-xs h-1.5 bg-[#E8E8E8] rounded-full overflow-hidden relative">
+            <div
+              className="h-full bg-gradient-to-r from-[#2638CC] to-[#3D53E8] rounded-full transition-all duration-300 ease-out"
+              style={{ width: `${progressPercent}%` }}
+            />
+          </div>
+          <span className="text-[10px] font-mono text-[#888888]">Swipe to explore</span>
         </div>
       </div>
     </section>

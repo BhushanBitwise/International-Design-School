@@ -6,40 +6,40 @@ import Button from '../components/common/Button';
 export default function StudentLife() {
   const experiences = [
     {
-      image: '/images/ids/fashion/ids-fashion-design-studio.webp',
-      title: 'Fashion Ateliers & Backstage Fittings',
+      image: '/Events/Collaborative Design Studio Workshop.webp',
+      title: 'Collaborative Design Studio Workshops',
       category: 'Studio Immersion',
-      desc: 'From late-night draping iterations on couture stands to live runway fittings with visiting models and stylists.'
+      desc: 'Students actively collaborating in teams, sketching ideas, building mockups, and exploring interdisciplinary solutions.'
     },
     {
-      image: '/images/ids/interior/ids-interior-design-studio.webp',
-      title: 'Architectural Model-Making Charrettes',
+      image: '/Events/Design School Critique Workshop.webp',
+      title: 'Studio Critiques & Project Defenses',
       category: 'Collaborative Making',
-      desc: 'Collaborative spatial charrettes where teams build physical 1:20 timber and concrete scale models for 48 straight hours.'
+      desc: 'Interactive feedback sessions where students pin up work and engage in constructive dialogue with faculty and industry mentors.'
     },
     {
-      image: '/images/ids/graphic/ids-graphic-design-studio.webp',
-      title: 'Typographic Risograph Jam Sessions',
-      category: 'Print Culture',
-      desc: 'Hands-on printmaking weekends printing two-color zines, experimental type specimens, and screen-printed posters.'
+      image: '/Events/Collaborative Design Studio Workshop (1).webp',
+      title: 'Hands-On Prototyping & Making Charrettes',
+      category: 'Tactile Craft',
+      desc: 'Dedicated workbench time with materials, physical scale models, and prototypes that bring two-dimensional concepts to life.'
     },
     {
-      image: '/images/ids/uiux/ids-uiux-design-lab.webp',
-      title: 'UX Usability Testing Labs',
-      category: 'Product Research',
-      desc: 'Observing real users navigate interactive software prototypes and synthesizing research into actionable design systems.'
+      image: '/Events/Design Thinking Lecture at IDS.webp',
+      title: 'Design Thinking & Interactive Lectures',
+      category: 'Methodology & Research',
+      desc: 'Engaging lectures and workshops exploring human-centered problem solving, cognitive ergonomics, and spatial systems.'
     },
     {
-      image: '/images/ids/events/ids-student-exhibition.webp',
-      title: 'Graduation Vernissage & Press Night',
+      image: '/Events/Design School Exhibition Critique.webp',
+      title: 'Graduation Vernissage & Public Showcase',
       category: 'Public Showcase',
-      desc: 'Opening our white-cube galleries to industry creative directors, design agency heads, and the international press.'
+      desc: 'Curated gallery presentations of capstone prototypes, fashion collections, and models reviewed by visiting industry luminaries.'
     },
     {
-      image: '/images/ids/campus/ids-pune-campus-entrance.webp',
-      title: 'Courtyard Coffee & Spontaneous Juries',
+      image: '/campus/IDS Design School Courtyard-1.webp',
+      title: 'Courtyard Community & Spontaneous Discussions',
       category: 'Campus Culture',
-      desc: 'Shaded open-air breezeways where professors, visiting designers, and students discuss ideas over artisanal espresso.'
+      desc: 'Naturally lit open-air courtyards where professors, visiting designers, and student cohorts exchange spontaneous ideas over coffee.'
     }
   ];
 

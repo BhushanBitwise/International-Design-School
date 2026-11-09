@@ -1,138 +1,255 @@
 // Curated Gallery Items for International Design School (IDS)
-// High-resolution creative works, studio life, architectural views, and exhibitions
+// High-resolution authentic photographic documentation from IDS Campus, Events & Student Awards
 
 export const galleryItems = [
   {
     id: 1,
-    title: 'Collaborative Studio Practice & Architectural Review',
-    category: 'Campus',
+    title: 'Multi-Level Central Atrium & Creative Hub',
+    category: 'Campus & Architecture',
     discipline: 'Spatial & Built Environments',
-    image: '/images/campus/ids-reception-branded.webp',
-    aspect: 'aspect-[16/9]',
+    image: '/campus/IDS International Design School Atrium.webp',
+    aspect: 'aspect-[16/10]',
     year: '2026',
-    caption: 'Students at the flagship campus engaging in peer-to-peer design criticism around sustainable scale models.'
+    caption: 'Naturally illuminated multi-level central atrium serving as the architectural core of the flagship Pune campus.'
   },
   {
     id: 2,
-    title: 'Haute Couture Draping & Silhouette Construction',
-    category: 'Fashion',
-    discipline: 'Fashion & Apparel',
-    image: '/images/campus/fashion-couture-studio.webp',
-    aspect: 'aspect-[4/3]',
+    title: 'Flagship Campus Main Entrance & Architectural Gateway',
+    category: 'Campus & Architecture',
+    discipline: 'Campus Architecture',
+    image: '/campus/International Design School Entrance.webp',
+    aspect: 'aspect-[16/10]',
     year: '2026',
-    caption: 'Experimental silk draping and structured pattern making at the IDS fashion atelier.'
+    caption: 'Grand pedestrian boulevard and monument entrance welcoming students, faculty, and visiting global designers.'
   },
   {
     id: 3,
-    title: 'Material Science & Sensory Interior Layouts',
-    category: 'Interior',
-    discipline: 'Spatial & Built Environments',
-    image: '/images/campus/interior-architecture-studio.webp',
+    title: 'Annual IDS Design Talks & Keynote Auditorium',
+    category: 'Events & Keynotes',
+    discipline: 'Academic Colloquiums',
+    image: '/Events/IDS Design Talks Auditorium Event.webp',
     aspect: 'aspect-[16/9]',
     year: '2026',
-    caption: 'Tactile stone, acoustic timber, and ambient illumination samples curated for hospitality spaces.'
+    caption: 'Full house at the IDS campus auditorium during the annual design talks and creative vision keynote.'
   },
   {
     id: 4,
-    title: 'Devanagari & Latin Typographic Identity Systems',
-    category: 'Graphic Design',
-    discipline: 'Visual Communication',
-    image: '/images/projects/project-03-branding.webp',
-    aspect: 'aspect-[4/3]',
+    title: 'National Design Excellence Laureate — Aarohi Deshmukh',
+    category: 'Awards & Distinctions',
+    discipline: 'Spatial & Biophilic Design',
+    image: '/images/awards/indian-student-award-winner-01.webp',
+    aspect: 'aspect-[16/10]',
     year: '2026',
-    caption: 'Multi-script editorial typography books, silkscreen posters, and bespoke brand style guides.'
+    caption: 'Aarohi Deshmukh receiving the National Design Excellence Trophy for her biophilic rural health community pavilion capstone.'
   },
   {
     id: 5,
-    title: 'User Experience Research & Cognitive Journey Mapping',
-    category: 'Student Projects',
-    discipline: 'Digital & Interactive',
-    image: '/images/projects/project-04-uiux.webp',
-    aspect: 'aspect-[16/9]',
+    title: 'Young Creative of the Year — Devansh Kulkarni',
+    category: 'Awards & Distinctions',
+    discipline: 'UI/UX & Cognitive Systems',
+    image: '/images/awards/indian-student-award-winner-02.webp',
+    aspect: 'aspect-[16/10]',
     year: '2026',
-    caption: 'Interactive prototype testing, wireframe iteration, and atomic design system components.'
+    caption: 'Devansh Kulkarni honored with the Annual Capstone Innovation Plaque for his tactile spatial navigation operating system.'
   },
   {
     id: 6,
-    title: 'Biophilic Urbanism & Asian Design Innovations',
-    category: 'International Experiences',
-    discipline: 'Spatial & Built Environments',
-    image: '/images/singapore-creative-studio.webp',
+    title: 'IDS Design Leadership & Executive Academic Panel',
+    category: 'Events & Keynotes',
+    discipline: 'Design Leadership',
+    image: '/Events/IDS Design Leadership Panel.webp',
     aspect: 'aspect-[16/9]',
     year: '2026',
-    caption: 'Proposed Singapore creative hub overlooking vertical greenery and smart sustainable infrastructure.'
+    caption: 'Senior design directors, founders, and academic deans discussing creative strategy and future paradigms.'
   },
   {
     id: 7,
-    title: 'Venture Incubation & Industrial Prototyping',
-    category: 'International Experiences',
-    discipline: 'Craft, Luxury & Products',
-    image: '/images/usa-campus.webp',
-    aspect: 'aspect-[4/3]',
+    title: 'Collaborative Studio Practice & Multidisciplinary Atelier',
+    category: 'Student Studio Life',
+    discipline: 'Collaborative Making',
+    image: '/Events/Collaborative Design Studio Workshop.webp',
+    aspect: 'aspect-[16/9]',
     year: '2026',
-    caption: 'Industrial loft prototyping space designed for collaborative venture design in the United States.'
+    caption: 'Students across Fashion, Interior, and UI/UX disciplines working collaboratively around design workbenches.'
   },
   {
     id: 8,
-    title: 'Sartorial Tailoring & Independent Visual Publishing',
-    category: 'Studio Life',
-    discipline: 'Fashion & Apparel',
-    image: '/images/uk-design-studio.webp',
-    aspect: 'aspect-[16/9]',
+    title: 'Executive Admissions & Design Reception Suite',
+    category: 'Offices & Reception',
+    discipline: 'Administration & Admissions',
+    image: '/campus/Design School Reception Lobby.webp',
+    aspect: 'aspect-[16/10]',
     year: '2026',
-    caption: 'Victorian warehouse aesthetic housing our proposed London design studio and archival collections.'
+    caption: 'Contemporary reception and admissions foyer where prospective students and families begin their creative journey.'
   },
   {
     id: 9,
-    title: 'Precision Functionalism & Circular Product Ergonomics',
-    category: 'Workshops',
-    discipline: 'Craft, Luxury & Products',
-    image: '/images/germany-design-workshop.webp',
-    aspect: 'aspect-[4/3]',
+    title: 'Studio Critique & Live Jury Review Workshop',
+    category: 'Workshops & Critiques',
+    discipline: 'Studio Defense',
+    image: '/Events/Design School Critique Workshop.webp',
+    aspect: 'aspect-[16/9]',
     year: '2026',
-    caption: 'Clay modeling, CNC milling, and technical drafting in the proposed Berlin industrial workshop.'
+    caption: 'Hands-on review of physical student portfolios, architectural drafting, and prototypes by faculty mentors.'
   },
   {
     id: 10,
-    title: 'Sustainable Architecture & Shaded Courtyard Studios',
-    category: 'Campus',
-    discipline: 'Spatial & Built Environments',
-    image: '/images/campus/pune-campus-branded.webp',
+    title: 'Graduation Exhibition & Public Capstone Review',
+    category: 'Workshops & Critiques',
+    discipline: 'Capstone Defense',
+    image: '/Events/Design School Exhibition Critique.webp',
     aspect: 'aspect-[16/9]',
     year: '2026',
-    caption: 'The flagship Pune campus architecture featuring terracotta jali screens and open-air collaborative plazas.'
+    caption: 'Graduating students defending models, prototypes, and fashion collections before external industry critics.'
   },
   {
     id: 11,
-    title: 'Graduation Capstone Showcase & Public Exhibition',
-    category: 'Events',
-    discipline: 'Multi-Disciplinary',
-    image: '/images/awards/award-03-exhibition.webp',
+    title: 'Central Design Courtyard & Informal Critique Steps',
+    category: 'Campus & Architecture',
+    discipline: 'Spatial Environments',
+    image: '/campus/IDS Design School Courtyard-1.webp',
     aspect: 'aspect-[16/9]',
     year: '2026',
-    caption: 'Curated white-cube gallery presentation of student fine jewelry, garments, and product models.'
+    caption: 'Sunlit amphitheater seating and courtyard plaza connecting studio wings for spontaneous dialogue.'
   },
   {
     id: 12,
-    title: 'Faculty Critique & One-on-One Portfolio Mentorship',
-    category: 'Studio Life',
-    discipline: 'Academic Mentorship',
-    image: '/images/faculty-mentorship.webp',
-    aspect: 'aspect-[4/3]',
+    title: 'Interactive Design Thinking & Cognitive Systems Lecture',
+    category: 'Workshops & Critiques',
+    discipline: 'Design Methodology',
+    image: '/Events/Design Thinking Lecture at IDS.webp',
+    aspect: 'aspect-[16/10]',
     year: '2026',
-    caption: 'Dedicated portfolio reviews and creative direction sessions between mentors and emerging designers.'
+    caption: 'Interactive lecture hall session breaking down human-centered problem solving and user ergonomics.'
+  },
+  {
+    id: 13,
+    title: 'International Global Design Colloquium',
+    category: 'Events & Keynotes',
+    discipline: 'Global Design',
+    image: '/Events/IDS International Design Talk.webp',
+    aspect: 'aspect-[16/10]',
+    year: '2026',
+    caption: 'Global dialogue bringing international keynote practitioners into direct conversation with student cohorts.'
+  },
+  {
+    id: 14,
+    title: 'Rapid Prototyping & Tactile Making Charrette',
+    category: 'Student Studio Life',
+    discipline: 'Tactile Prototyping',
+    image: '/Events/Collaborative Design Studio Workshop (1).webp',
+    aspect: 'aspect-[16/9]',
+    year: '2026',
+    caption: 'Intensive prototyping charrette where students transform sketches into physical artifacts.'
+  },
+  {
+    id: 15,
+    title: 'Front Office Reception Desk & Advisory Foyer',
+    category: 'Offices & Reception',
+    discipline: 'Administration & Welcome',
+    image: '/campus/Modern Design School Reception.webp',
+    aspect: 'aspect-[16/10]',
+    year: '2026',
+    caption: 'Warm architectural desk lighting and consultation suite for portfolio submissions and student guidance.'
+  },
+  {
+    id: 16,
+    title: 'Main Welcome Lobby & Student Exhibition Gallery',
+    category: 'Offices & Reception',
+    discipline: 'Spatial Design',
+    image: '/campus/International Design School Lobby.webp',
+    aspect: 'aspect-[16/10]',
+    year: '2026',
+    caption: 'High-ceiling lobby space welcoming guests with physical display vitrines and student capstone installations.'
+  },
+  {
+    id: 17,
+    title: 'Modern West Campus Entrance & Landscaped Boulevard',
+    category: 'Campus & Architecture',
+    discipline: 'Campus Architecture',
+    image: '/campus/Modern Design School Entrance.webp',
+    aspect: 'aspect-[16/9]',
+    year: '2026',
+    caption: 'Contemporary facade framing pedestrian arrival corridors with subtropical landscaping.'
+  },
+  {
+    id: 18,
+    title: 'The Future of Design Education: Faculty Panel',
+    category: 'Events & Keynotes',
+    discipline: 'Academic Dialogue',
+    image: '/Events/IDS Design School Panel Discussion.webp',
+    aspect: 'aspect-[16/9]',
+    year: '2026',
+    caption: 'Educators and multidisciplinary designers exploring atelier pedagogy and hands-on making.'
+  },
+  {
+    id: 19,
+    title: 'Design Futures & Speculative Material Innovation Panel',
+    category: 'Events & Keynotes',
+    discipline: 'Futures & Speculative Design',
+    image: '/Events/Design Futures_ IDS Panel Discussion.webp',
+    aspect: 'aspect-[16/9]',
+    year: '2026',
+    caption: 'Material scientists and speculative designers debating circular lifecycle systems and sustainable futures.'
+  },
+  {
+    id: 20,
+    title: 'Open-Air Landscaped Courtyard & Shaded Breezeways',
+    category: 'Campus & Architecture',
+    discipline: 'Spatial Environments',
+    image: '/campus/International Design School Courtyard.webp',
+    aspect: 'aspect-[16/9]',
+    year: '2026',
+    caption: 'Biophilic open courtyards designed for informal brainstorming, student sketch sessions, and natural ventilation.'
+  },
+  {
+    id: 21,
+    title: 'Spacious Reception Lounge & Waiting Gallery',
+    category: 'Offices & Reception',
+    discipline: 'Spatial Design',
+    image: '/campus/Modern Design School Reception Lobby.webp',
+    aspect: 'aspect-[16/10]',
+    year: '2026',
+    caption: 'Comfortable architectural lounge curated with design publications, monographs, and materials archives.'
+  },
+  {
+    id: 22,
+    title: 'Architectural Reception Foyer & Materials Showcase',
+    category: 'Offices & Reception',
+    discipline: 'Spatial Architecture',
+    image: '/campus/Modern Design School Reception Lobby (1).webp',
+    aspect: 'aspect-[16/9]',
+    year: '2026',
+    caption: 'Wide-angle perspective of the modern admissions wing displaying tactile material prototypes.'
+  },
+  {
+    id: 23,
+    title: 'Admissions Showcase Lounge & Gallery Zone',
+    category: 'Offices & Reception',
+    discipline: 'Executive Spaces',
+    image: '/campus/Modern Design School Reception Lobby (2).webp',
+    aspect: 'aspect-[16/10]',
+    year: '2026',
+    caption: 'Naturally lit reception gallery where visiting juries convene prior to studio critiques.'
+  },
+  {
+    id: 24,
+    title: 'International Creative Pavilion Entrance',
+    category: 'Campus & Architecture',
+    discipline: 'Global Creative Hub',
+    image: '/campus/Modern International Design School Entrance.webp',
+    aspect: 'aspect-[16/9]',
+    year: '2026',
+    caption: 'Pavilion entrance design envisioned for international exchange residencies and design colloquiums.'
   }
 ];
 
 export const galleryCategories = [
   'All Works',
-  'Fashion',
-  'Interior',
-  'Graphic Design',
-  'Student Projects',
-  'Studio Life',
-  'Events',
-  'Workshops',
-  'Campus',
-  'International Experiences'
+  'Campus & Architecture',
+  'Offices & Reception',
+  'Events & Keynotes',
+  'Workshops & Critiques',
+  'Student Studio Life',
+  'Awards & Distinctions'
 ];

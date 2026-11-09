@@ -1,36 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Badge from '../common/Badge';
 import Button from '../common/Button';
 import BrandedCampusImage from '../common/BrandedCampusImage';
-import { Scissors, Hammer, Monitor, Box, Eye, Coffee, Sparkles, Building2, MapPin } from 'lucide-react';
+import { Scissors, Hammer, Monitor, Box, Eye, Coffee, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function StudioExperience() {
   const [activePhoto, setActivePhoto] = useState(0);
+  const [activeFacilityIndex, setActiveFacilityIndex] = useState(0);
+  const facilityRef = useRef(null);
 
   const campusPhotos = [
     {
-      src: '/images/ids/reception/ids-reception-lobby.webp',
-      title: 'Flagship Campus Reception with Integrated 3D Architectural Signage',
-      location: 'Pune Flagship Campus',
-      tag: 'Reception Lobby'
-    },
-    {
-      src: '/images/ids/campus/ids-pune-campus-entrance.webp',
-      title: 'Main Entrance & Pedestrian Walkway with Monument Architectural Wall',
+      src: '/campus/International Design School Entrance.webp',
+      title: 'Flagship Campus Main Entrance & Architectural Gateway',
       location: 'Pune Flagship Campus',
       tag: 'Campus Entrance'
     },
     {
-      src: '/images/ids/fashion/ids-fashion-design-studio.webp',
-      title: 'Haute Couture Atelier with Dedicated Draping Stations & IDS Studio Wall',
-      location: 'Couture Studio 01',
-      tag: 'Fashion Atelier'
+      src: '/campus/IDS International Design School Atrium.webp',
+      title: 'Multi-Level Central Atrium & Creative Hub',
+      location: 'Pune Flagship Campus',
+      tag: 'Central Atrium'
     },
     {
-      src: '/images/ids/interior/ids-interior-design-studio.webp',
-      title: 'Spatial Architecture Studio with Material Library & Model Drafting',
-      location: 'Built Environments Studio 03',
-      tag: 'Interior Studio'
+      src: '/campus/Design School Reception Lobby.webp',
+      title: 'Executive Admissions & Design Reception Lobby',
+      location: 'Administration Suite',
+      tag: 'Reception Lobby'
+    },
+    {
+      src: '/campus/IDS Design School Courtyard-1.webp',
+      title: 'Landscaped Architectural Courtyard & Open-Air Studio',
+      location: 'Central Courtyard',
+      tag: 'Design Courtyard'
+    },
+    {
+      src: '/campus/International Design School Lobby.webp',
+      title: 'Contemporary Design Welcome Foyer & Student Gallery',
+      location: 'Main Pavilion',
+      tag: 'Welcome Foyer'
+    },
+    {
+      src: '/campus/Modern Design School Reception.webp',
+      title: 'Front Office Reception & Consultation Suite',
+      location: 'Executive Wing',
+      tag: 'Office Reception'
     }
   ];
 
@@ -67,6 +81,29 @@ export default function StudioExperience() {
     }
   ];
 
+  const totalFacilities = facilities.length;
+
+  const handleFacilityScroll = () => {
+    if (!facilityRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = facilityRef.current;
+    const maxScroll = scrollWidth - clientWidth;
+    if (maxScroll <= 0) return;
+    const ratio = scrollLeft / maxScroll;
+    const idx = Math.round(ratio * (totalFacilities - 1));
+    setActiveFacilityIndex(Math.min(Math.max(idx, 0), totalFacilities - 1));
+  };
+
+  const slideFacility = (idx) => {
+    if (!facilityRef.current) return;
+    const itemWidth = window.innerWidth >= 768 ? 360 : 280;
+    facilityRef.current.scrollTo({
+      left: idx * itemWidth,
+      behavior: 'smooth'
+    });
+  };
+
+  const progressPercent = ((activeFacilityIndex + 1) / totalFacilities) * 100;
+
   return (
     <section className="py-20 md:py-28 bg-white border-b border-[#E8E8E8] bg-dots">
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -102,7 +139,7 @@ export default function StudioExperience() {
             </div>
 
             {/* Quick Campus Photo Selector Tabs */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1">
               {campusPhotos.map((photo, idx) => (
                 <button
                   key={idx}
@@ -120,29 +157,84 @@ export default function StudioExperience() {
           </div>
         </div>
 
-        {/* 6 Studio Facilities Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Facilities Section Header with Slider Controls for Mobile */}
+        <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#E8E8E8]">
+          <div>
+            <h3 className="font-heading text-xl sm:text-2xl font-bold text-[#111111] tracking-tight">
+              Specialized Studio Workshops & Laboratories
+            </h3>
+            <p className="text-xs text-[#666666] mt-1 font-mono">
+              Professional fabrication equipment & material archives
+            </p>
+          </div>
+
+          <div className="flex lg:hidden items-center gap-2">
+            <button
+              onClick={() => slideFacility(Math.max(0, activeFacilityIndex - 1))}
+              disabled={activeFacilityIndex === 0}
+              aria-label="Previous Facility"
+              className="w-8 h-8 rounded-xl bg-white border border-[#E8E8E8] text-[#111111] flex items-center justify-center hover:bg-[#111111] hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all shadow-2xs cursor-pointer"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => slideFacility(Math.min(totalFacilities - 1, activeFacilityIndex + 1))}
+              disabled={activeFacilityIndex >= totalFacilities - 1}
+              aria-label="Next Facility"
+              className="w-8 h-8 rounded-xl bg-white border border-[#E8E8E8] text-[#111111] flex items-center justify-center hover:bg-[#111111] hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all shadow-2xs cursor-pointer"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+
+        {/* 6 Studio Facilities: Smooth Swipeable Slider on Mobile, 3-Col Grid on Desktop */}
+        <div
+          ref={facilityRef}
+          onScroll={handleFacilityScroll}
+          className="flex lg:grid lg:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto lg:overflow-visible scrollbar-none snap-x snap-mandatory pb-3 -mx-4 px-4 sm:mx-0 sm:px-0"
+        >
           {facilities.map((f, idx) => {
             const Icon = f.icon;
             return (
               <div
                 key={idx}
-                className="chrono-card p-6 sm:p-7 flex flex-col justify-between group bg-white"
+                className="w-[82vw] sm:w-[340px] lg:w-auto shrink-0 lg:shrink snap-start chrono-card p-6 sm:p-7 flex flex-col justify-between group bg-white border border-[#E8E8E8] hover:border-[#2638CC]/40 hover:shadow-[0_15px_30px_-8px_rgba(38,56,204,0.1)] transition-all duration-300"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-[#FAFAFA] border border-[#E8E8E8] text-[#111111] flex items-center justify-center mb-4 group-hover:bg-[#F06445] group-hover:text-white transition-all shadow-2xs">
+                  <div className="w-10 h-10 rounded-xl bg-[#FAFAFA] border border-[#E8E8E8] text-[#111111] flex items-center justify-center mb-4 group-hover:bg-[#2638CC] group-hover:text-white transition-all shadow-2xs">
                     <Icon className="w-4 h-4" />
                   </div>
-                  <h3 className="font-heading text-base sm:text-lg font-bold text-[#111111] tracking-tight group-hover:text-[#F06445] transition-colors">
+                  <h4 className="font-heading text-base sm:text-lg font-bold text-[#111111] tracking-tight group-hover:text-[#2638CC] transition-colors">
                     {f.title}
-                  </h3>
+                  </h4>
                   <p className="mt-2 text-xs sm:text-sm text-[#666666] leading-relaxed">
                     {f.desc}
                   </p>
                 </div>
+                <div className="mt-4 pt-3 border-t border-[#E8E8E8] text-[10px] font-mono text-[#999999] flex justify-between">
+                  <span>Facility 0{idx + 1}</span>
+                  <span className="text-[#2638CC] font-semibold">Active Studio</span>
+                </div>
               </div>
             );
           })}
+        </div>
+
+        {/* Mobile Slim Progress Indicator for Facilities */}
+        <div className="flex lg:hidden items-center justify-between gap-4 mt-3 pt-2">
+          <div className="flex items-center gap-2 text-xs font-mono text-[#888888]">
+            <span className="font-bold text-[#111111]">0{activeFacilityIndex + 1}</span>
+            <span>/</span>
+            <span>0{totalFacilities}</span>
+          </div>
+          <div className="flex-1 max-w-xs h-1.5 bg-[#E8E8E8] rounded-full overflow-hidden relative">
+            <div
+              className="h-full bg-gradient-to-r from-[#2638CC] to-[#3D53E8] rounded-full transition-all duration-300 ease-out"
+              style={{ width: `${progressPercent}%` }}
+            />
+          </div>
+          <span className="text-[10px] font-mono text-[#888888]">Swipe</span>
         </div>
       </div>
     </section>

@@ -113,34 +113,59 @@
   text-wrap: balance;
 }
 
-/* Marquee Animations */
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-@keyframes marquee-reverse {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0%); }
-}
-
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 40s linear infinite;
-  will-change: transform;
-}
-
-.animate-marquee-reverse {
-  display: flex;
-  width: max-content;
-  animation: marquee-reverse 45s linear infinite;
-  will-change: transform;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee,
-  .animate-marquee-reverse {
-    animation: none;
+/* Continuous Hardware-Accelerated Marquee Animations */
+@keyframes idsMarqueeForward {
+  0% {
+    transform: translate3d(0, 0, 0);
   }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes idsMarqueeBackward {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.ids-auto-marquee-forward,
+.animate-marquee {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  width: max-content !important;
+  animation: idsMarqueeForward 48s linear infinite !important;
+  will-change: transform;
+}
+
+.ids-auto-marquee-backward,
+.animate-marquee-reverse {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  width: max-content !important;
+  animation: idsMarqueeBackward 52s linear infinite !important;
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ids-auto-marquee-forward:hover,
+  .animate-marquee:hover,
+  .ids-auto-marquee-backward:hover,
+  .animate-marquee-reverse:hover {
+    animation-play-state: paused !important;
+  }
+}
+
+/* Scrollbar None Utility for Smooth Sliders */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

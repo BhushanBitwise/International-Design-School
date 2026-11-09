@@ -31,13 +31,13 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-[#E8E8E8] shadow-sm h-[360px] sm:h-[460px]">
               <img
-                src="/images/ids-hero-studio.webp"
+                src="/campus/IDS International Design School Atrium.webp"
                 alt="IDS Design Studio Philosophy"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-5 left-5 text-white text-xs font-mono">
-                Flagship Studio Environment • Pune, India
+                Flagship Central Atrium & Creative Hub • Pune, India
               </div>
             </div>
 
